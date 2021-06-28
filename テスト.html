@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>untitled</title>
+</head>
+  <body onload="Trigger()">
+    <div class = "movie_area" style = "top:20pt;width:1000pt;heght:900pt;">
+      <div class = "movie" style = "top:1pt;width:100%;height:700pt">
+                <iframe src = "https://upload.wikimedia.org/wikipedia/commons/e/e4/2020%E5%B9%B45%E6%9C%8821%E6%97%A5_%E5%BC%A0%E4%B8%9A%E9%81%82%EF%BC%9A%E5%9D%9A%E5%86%B3%E5%8F%8D%E5%AF%B9%E7%BE%8E%E5%9B%BD%E5%9B%BD%E4%BC%9A%E8%AE%AE%E5%91%98%E5%80%9F%E7%96%AB%E6%83%85%E6%8F%90%E5%87%BA%E6%B6%89%E5%8D%8E%E6%B6%88%E6%9E%81%E8%AE%AE%E6%A1%88.webm" style="width:100%;height:100%;"></iframe>
+      </div>
+      <div class = "Comments" style ="top:920pt;width:100%;height:200pt;">
+        <iframe src="https://4-ch.net/4ch.html" style="width:100%;"></iframe>
+	<Audio src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Caro_Mio_Ben_-_Bryn_Williams.ogg" muted autoplay>
+      </div>
+      <div>
+          <script>
+		var m = new Audio('https://upload.wikimedia.org/wikipedia/commons/c/c3/Caro_Mio_Ben_-_Bryn_Williams.ogg');
+		function PlayMUSC(){
+			m.play();
+			m.loop = true;
+		}
+		function Trigger(){
+			if (event.clientX <= window.parent.screen.width){
+				PlayMUSC();
+			}
+		}
+		
+          </script>
+      </div>
+    </div>            
+                                                                               
+  </body>
+</html>
