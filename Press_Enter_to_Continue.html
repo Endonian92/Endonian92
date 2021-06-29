@@ -4,10 +4,15 @@
     <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
   </head>
   <body>
+      <t1>Press Enter to Continue</t1>
     <script>
       $("#page").keypress(function(){
         var str = event.keyCode;
-        alert(str);
+        var music = new Audio('https://upload.wikimedia.org/wikipedia/commons/c/c3/Caro_Mio_Ben_-_Bryn_Williams.ogg');
+        if (str == 13){
+            music.play();
+            music.loop = true;
+        }
   });
 
     </script>
