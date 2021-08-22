@@ -1,0 +1,80 @@
+<html>
+<body>
+Test<br />
+<canvas id="canvas" style="background:black;"></canvas>
+</body>
+<script>
+//関数の定義
+canvas.addEventListener("load",function(){
+	var Map_Array = [];//マップデータの読み込み先
+	var M_A_3rd = [[-3,-2,-1],[0,1,2],[3,1,2]];//3階のマップ配列
+	var M_A_2nd = [];//2階のマップ配列
+	var M_A_1st = [];//１階のマップ配列
+	var Player_x = 1;//プレイヤーの出現位置
+	var Player_y = 4;//プレイヤーの出現位置
+	var P_floor = 3;//プレイヤーのいる階
+	var canvas = document.getElementById("canvas");//Canvasの設定
+	canvas.width = 500;
+	canvas.height = 500;
+	var ctx = canvas.getContext("2d");
+	var floorPath = "floor.png";//素材のパス張り
+	var groundPath = "ground.png";
+	var stairsPath = "stairs.png";
+	var wallPath = "wall.png";
+	var no_entryPath = "no_entry.png";
+	var skyPath = "sky.png";
+	var txtr;//texture_code
+	var x;
+	var y;
+	var y_len;
+	var x_len;
+	var A_x;
+	var A_y;
+	function Load_Map(){
+		function Map(){
+			var floor = new Image();
+			var ground = new Image();
+			var stairs = new Image();
+			var wall = new Image();
+			var no_entry =  new Image();
+			var sky = new Image();
+			if (txtr == 0){
+				floor.addEventListener("load",function (){
+					ctx.drawImage(floor,x,y);
+				});
+				floor.src = floorPath;
+			}
+		}
+		function M_A(){
+			if (P_floor == 3){
+				Map_Array = M_A_3rd;
+			}else if(P_floor == 2){
+				Map_Array = M_A_2nd;
+			}else if(P_floor == 2){
+				Map_Array = M_A_2nd;
+			}
+		}	
+		function ArrayLoader(){
+			A_x = 0;
+			A_y = 0;
+			txtr = parseFloat(Map_Array[A_y][A_x]);
+			A_x = A_x +1;
+			x = A_x * 16;
+		}
+		M_A();
+		x_len = Map_Array[0].length;
+		y_len = Map_Array.length;
+		while (A_y < y_len){
+			while (A_x < x_len){
+				ArrayLoader();
+				Map();
+				console.log(txtr);
+			}
+			A_y = A_y + 1;
+			y = A_y * 16;
+		}
+	}
+	Load_Map();
+});
+</script>
+</html>
